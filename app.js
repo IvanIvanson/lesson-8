@@ -85,9 +85,19 @@ function addTableRow(item){
    table.rows[item].cells[3].innerText = `${priceProd*score}`;
 }
 
-table.addEventListener('click', function(event){
-    event.target.innerHTML = '';
-});
+table.addEventListener('click', del)
+
+function del(){
+//    while(table.rows.length){
+//       table.deleteRow(table.rows.length-5); 
+//    } 
+
+let rowCount = table.rows.length;
+for(let i = 1; i < rowCount; i++){
+    table.deleteRow(rowCount - (rowCount+i)); 
+}
+   
+};
 
 
 //  общая сумма товара
